@@ -12,7 +12,7 @@ class FileService:
         """
         with open(self.file_path, encoding='utf-8') as f:
             vocabulary_file = f.read()
-            vocabulary = re.findall(r"[a-zA-Z.'`-]+", vocabulary_file)
+            vocabulary = re.findall(r"[a-zA-Z\n.'`-]+", vocabulary_file)
         return vocabulary
 
     def update_vocabulary(self, new_word):
