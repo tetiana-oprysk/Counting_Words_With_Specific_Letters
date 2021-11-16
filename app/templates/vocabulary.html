@@ -27,7 +27,7 @@ Upload your vocabulary
             </div>
 
 
-            <div class="form-group custom-1">
+            <div class="form-group custom-div">
                 <p>Now, you can find your word.</p>
                 <div class="form-group">
                     {{ form_search.letters(class="form-control", placeholder="Write down your letters...") }}
@@ -56,16 +56,18 @@ Upload your vocabulary
         </form>
     </div>
 </body>
-<style>
-    .custom-1 {
-        margin-top: 50px !important;
-    }
-</style>
 
 {% endblock  %}
+
 {% block style %}
+
     label {
         font-size: 15pt !important;
         margin: 10px !important;
     }
+
+    .custom-div {
+        margin-top: 50px !important;
+    }
+
 {% endblock %}
