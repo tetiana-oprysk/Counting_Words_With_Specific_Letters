@@ -22,26 +22,6 @@ def main_page():
     return render_template('form_to_upload_vocabulary.html', form=form)
 
 
-# def words_that_contain_provided_letters(vocabulary, pattern) -> list:
-#
-#     def is_sublist(pattern, word) -> bool:
-#         pattern_counter = Counter(pattern)
-#         word_counter = Counter(word)
-#
-#         for item, count in pattern_counter.items():
-#             if count > word_counter[item]:
-#                 return False
-#
-#         return True
-#
-#     words_with_provided_letters = [word for word in vocabulary if is_sublist(list(pattern.lower()), list(word.lower()))]
-#     return words_with_provided_letters
-#
-#
-# def find_number_of_words_that_contain_provided_letters(vocabulary, pattern) -> int:
-#     return len(words_that_contain_provided_letters(vocabulary, pattern))
-
-
 @app.route('/vocabulary', methods=['GET', 'POST'])
 def vocabulary():
     # Search file with vocabulary
