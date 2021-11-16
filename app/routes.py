@@ -59,7 +59,7 @@ def vocabulary():
     if form_add_new_word.validate_on_submit():
         new_word = request.form['add_new_word']
         file_service.update_vocabulary(new_word)
-
+        flash('New word successfully added!')
         return redirect(url_for('vocabulary', filename=file))
 
     # Form for searching words
@@ -78,10 +78,12 @@ def vocabulary():
         words = find_words.words_that_contain_provided_letters()
         words_str = ', '.join(words[:10])
 
+    vocabulary_str = ', '.join(vocabulary)
     return render_template('vocabulary.html',
                            form_add_new_word=form_add_new_word,
                            form_search=form_search_words_contain_provided_letters,
                            vocabulary=vocabulary,
+                           vocabulary_str=vocabulary_str,
                            number_of_words=number_of_words,
                            words=words_str,
                            letters=letters)

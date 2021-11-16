@@ -4,6 +4,7 @@
 Upload your vocabulary
 {% endblock %}
 
+
 {% block content %}
 <body class="text-center">
     <div class="container">
@@ -11,7 +12,13 @@ Upload your vocabulary
 
             <div>
                 <label>Your vocabulary has been successfully downloaded!</label><br>
-                {{ vocabulary }}<br>
+                {% if vocabulary|length <= 100 %}
+                    Your vocabulary -> {{ vocabulary_str }}<br>
+                {% else %}
+                    Your vocabulary contain too many words to show, but it still here :)<br>
+                {% endif %}
+                <br>
+
                 <div class="form-group">
                     {{ form_add_new_word.add_new_word(class="form-control", placeholder="Add new word...") }}
                 </div>
@@ -57,9 +64,6 @@ Upload your vocabulary
 
 {% endblock  %}
 {% block style %}
-    body {
-        margin: 5% !important;
-    }
     label {
         font-size: 15pt !important;
         margin: 10px !important;
