@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Upload your vocabulary
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Upload your vocabulary (only .txt format)</label>
+                {{ form.file(class='form-control-file') }}
+<!--                <input type="file" name="file">-->
+<!--                <input type="submit" value="Upload">-->
+            </div>
+                {{ form.submit(class='btn btn-outline-success btn-block') }}
+<!--            <button type="submit" class="btn btn-outline-success btn-block">Confirm</button>-->
+        </form>
+    </div>
+</body>
+
+{% endblock  %}
+{% block style %}
+    body {
+        margin: 10% !important;
+    }
+    label {
+        font-size: 15pt !important;
+        margin: 10px !important;
+    }
+{% endblock %}

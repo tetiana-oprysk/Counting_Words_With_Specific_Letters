@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Upload your vocabulary
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+
+            <div>
+                <label>Your vocabulary has been successfully downloaded!</label><br>
+                {{ vocabulary }}<br>
+                <div class="form-group">
+                    {{ form_add_new_word.add_new_word(class="form-control", placeholder="Add new word...") }}
+                </div>
+                {{ form_add_new_word.csrf_token }}
+                {{ form_add_new_word.submit(class="btn btn-lg btn-block btn-outline-info") }}
+            </div>
+
+
+            <div class="form-group custom-1">
+                <p>Now, you can find your word.</p>
+                <div class="form-group">
+                    {{ form_search.letters(class="form-control", placeholder="Write down your letters...") }}
+                </div>
+
+                {{ form_search.csrf_token }}
+                {{ form_search.search(class="btn btn-lg btn-block btn-outline-info", onclick="window.location.reload();") }}
+            </div>
+
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Letters</th>
+                        <th scope="col">Number of words</th>
+                        <th scope="col">Words</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ letters }}</th>
+                        <td>{{ number_of_words }}</td>
+                        <td>{{ words }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+<style>
+    .custom-1 {
+        margin-top: 50px !important;
+    }
+</style>
+
+{% endblock  %}
+{% block style %}
+    body {
+        margin: 5% !important;
+    }
+    label {
+        font-size: 15pt !important;
+        margin: 10px !important;
+    }
+{% endblock %}
