@@ -1,6 +1,4 @@
 import os
-import re
-from collections import Counter
 from app import app
 from app.services.file_service import FileService
 from app.services.find_words_service import FindWords
